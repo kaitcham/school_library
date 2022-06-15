@@ -1,13 +1,12 @@
-require_relative './corrector'
+require_relative './nameable'
 
-class Person
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
-    @corrector = Nameable.new
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -23,10 +22,10 @@ class Person
     of_age || parent_permission == true
   end
 
-  def validate_name
-    @corrector.correct_name @name
+  def correct_name
+    @name
   end
 end
 
 person = Person.new(22, 'maximilianus')
-p person.validate_name
+p person.correct_name
