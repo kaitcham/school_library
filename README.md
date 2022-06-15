@@ -10,11 +10,13 @@
 
 ## Getting Started
 
-Clone the project, make sure you have ruby installed and you are good to go
+- Clone the project, make sure you have ruby installed.
+- cd into school_library.
+- bundle install and you are good to go.
 
 ## Author
 
-👤 **Ben**
+👤 **Munezero Christian**
 
 - GitHub: [Kait Cham](https://github.com/kaitcham)
 - Twitter: [Kait Cham](https://twitter.com/kaitcham)
