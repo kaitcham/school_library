@@ -35,6 +35,8 @@ class App
     get_option user_input
   end
 
+  # rubocop:disable Metrics
+
   def get_option(user_input)
     case user_input
     when '1'
@@ -56,6 +58,8 @@ class App
       options
     end
   end
+
+  # rubocop:enable Metrics
 
   def list_all_books
     puts 'There are no books registered! Please add books.' if @books.empty?
@@ -115,7 +119,7 @@ class App
     print 'Specialization: '
     specialization = gets.chomp
 
-    teacher = Teacher.new(age, name, specialization)
+    teacher = Teacher.new(age, specialization, name)
     @people << teacher
 
     puts 'Teacher created successfully'
@@ -150,7 +154,7 @@ class App
     person_id = gets.chomp.to_i
 
     print 'Date: '
-    date = gets.chomp.to_i
+    date = gets.chomp
 
     rental = Rental.new(date, @books[book_id], @people[person_id])
     @rentals << rental
