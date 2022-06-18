@@ -12,7 +12,8 @@
 
 - Clone the project, make sure you have ruby installed.
 - cd into school_library.
-- bundle install and you are good to go.
+- bundle install.
+- In your terminal run ruby main.rb and you are good to go.
 
 ## Author
 

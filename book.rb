@@ -6,7 +6,7 @@ class Book
     super()
     @title = title
     @author = author
-    @rentals = []
+    @rental = []
   end
 
   def add_rental(person, date)
