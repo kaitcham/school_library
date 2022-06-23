@@ -1,6 +1,7 @@
-class Nameable
+class Corrector
   def correct_name(name)
-    name = name.capitalize
-    name[0, 10] if name.length > 10
+    corrected_name = name.capitalize
+    corrected_name = corrected_name[0..9] if name.length > 10
+    corrected_name
   end
 end

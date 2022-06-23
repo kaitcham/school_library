@@ -1,0 +1,8 @@
+[
+  {
+    "json_class": "Rental",
+    "date": "23/06/2022",
+    "person_id": 1,
+    "book_id": 1
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "json_class": "Student",
+    "id": 1,
+    "name": "Kait",
+    "age": "25",
+    "parent_permission": true
+  },
+  {
+    "json_class": "Teacher",
+    "id": 2,
+    "name": "Cham",
+    "age": "40",
+    "specialization": "Time travel"
+  }
+]
