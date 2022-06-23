@@ -58,12 +58,12 @@ module Create
   end
 
   def create_person_input
-    puts''
+    puts ''
     puts 'Please choose an option between 1 and 2
       1 - Create a student
       2 - Create a teacher
       '
-    print "#{INPUT_MSG}"
+    print INPUT_MSG.to_s
     option = gets.chomp.to_i
     create_person(option)
   end
@@ -74,9 +74,9 @@ module Create
   end
 
   def create_book_input
-    print'Enter book title: '
+    print 'Enter book title: '
     title = gets.chomp
-    print'Enter book author: '
+    print 'Enter book author: '
     author = gets.chomp
     create_book(title, author)
   end
@@ -89,19 +89,19 @@ module Create
   end
 
   def create_rental_input
-    print'Select a book by number '
+    print 'Select a book by number '
     list_books
-    puts''
+    puts ''
     print_message if @books.length.zero?
-    print "#{INPUT_MSG}"
+    print INPUT_MSG.to_s
     book_index = gets.chomp.to_i
     print 'Select a person by number: '
     list_persons
-    puts''
+    puts ''
     print_message if @persons.length.zero?
-    print "#{INPUT_MSG}"
+    print INPUT_MSG.to_s
     person_index = gets.chomp.to_i
-    puts''
+    puts ''
     print 'Enter date: '
     date = gets.chomp
     create_rental(person_index, book_index, date)

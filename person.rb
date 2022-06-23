@@ -1,3 +1,4 @@
+# rubocop:disable Style/ClassVars
 require_relative './corrector'
 require_relative './rental'
 
@@ -44,3 +45,4 @@ class Person
     @age >= 18
   end
 end
+# rubocop:enable Style/ClassVars

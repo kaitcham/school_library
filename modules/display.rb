@@ -1,6 +1,6 @@
 module Display
   def list_books
-    puts''
+    puts ''
     if @books.length.zero?
       puts "There's no book, Please add a book first"
     else
@@ -11,7 +11,7 @@ module Display
   end
 
   def list_persons
-    puts''
+    puts ''
     if @persons.length.zero?
       puts "There's no person, Please add a person first"
     else
@@ -39,7 +39,7 @@ module Display
     if rentals.length.zero?
       puts 'No rentals for this person, Please add a rental first'
     else
-      rentals.each_with_index do |rent, index|
+      rentals.each_with_index do |rent, _index|
         puts "Date: #{rent.date}, Book: #{rent.book.title} by #{rent.person.name}"
       end
     end

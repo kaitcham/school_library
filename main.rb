@@ -1,4 +1,4 @@
-# rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
+# rubocop:disable Metrics/CyclomaticComplexity
 require './student'
 require './teacher'
 require './book'
@@ -27,7 +27,7 @@ class Main
       6 - List all rentals for a given person id
       7 - Exit
     '
-    print "#{INPUT_MSG}"
+    print INPUT_MSG.to_s
     option = gets.chomp.to_i
     handle_input(option)
     print_message
@@ -52,7 +52,7 @@ class Main
       save_data
       exit
     else puts 'Please select a valid option'
-      print_message
+         print_message
     end
   end
 
@@ -68,4 +68,4 @@ library = Main.new
 
 library.main
 
-# rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
