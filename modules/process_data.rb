@@ -3,9 +3,7 @@ require 'json'
 module ProcessData
   def load_books
     if File.exist?('data/books.json')
-      JSON.parse(File.read('data/books.json')).map do |book|
-        Book.new(book['title'], book['author'])
-      end
+      JSON.parse(File.read('data/books.json')).map { |book| Book.new(book['title'], book['author']) }
     else
       []
     end
