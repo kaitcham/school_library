@@ -5,7 +5,7 @@ require './book'
 require './rental'
 require './modules/create'
 require './modules/display'
-require './modules/process_data'
+require './modules/data'
 
 class Main
   include Create
