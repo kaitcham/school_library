@@ -13,28 +13,6 @@ class App
     @classroom_default = Classroom.new('default-classroom')
   end
 
-  def run
-    puts ''
-    puts 'Welcome to school libray app!'
-    puts 'Please choose an option by entering a number:'
-    options
-  end
-
-  def options
-    puts '
-      1 - List all books
-      2 - List all people
-      3 - Create a person
-      4 - Create a book
-      5 - Create a rental
-      6 - list all rentals for a given person id
-      7 - Exit
-    '
-    print 'Select an Option: '
-    user_input = gets.chomp
-    get_option user_input
-  end
-
   # rubocop:disable Metrics
 
   def get_option(user_input)
@@ -46,9 +24,9 @@ class App
     when '3'
       create_a_person
     when '4'
-      create_a_book
+      book_data
     when '5'
-      create_a_rental
+      rental_data
     when '6'
       list_rentals_by_person_id
     when '7'
@@ -79,20 +57,28 @@ class App
 
     case option
     when '1'
-      create_a_student
+      student_data
     when '2'
-      create_a_teacher
+      teacher_data
     else
       while option != '1' || option != '2'
         print 'Invalid input. Please type 1 or 2 [Input a number]:'
         option = gets.chomp
-        create_a_student if option == '1'
-        create_a_teacher if option == '2'
+        student_data if option == '1'
+        teacher_data if option == '2'
       end
     end
   end
 
-  def create_a_student
+  def create_a_student(name, age, parent_permission)
+    student = Student.new(age, @class, name, parent_permission)
+    @people << student
+
+    puts 'Student created successfully'
+    options
+  end
+
+  def student_data
     print 'Age: '
     age = gets.chomp.to_i
 
@@ -102,14 +88,18 @@ class App
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp.downcase
 
-    student = Student.new(age, @class, name, parent_permission)
-    @people << student
+    create_a_student(name, age, parent_permission)
+  end
 
-    puts 'Student created successfully'
+  def create_a_teacher(age, specialization, name)
+    teacher = Teacher.new(age, specialization, name)
+    @people << teacher
+
+    puts 'Teacher created successfully'
     options
   end
 
-  def create_a_teacher
+  def teacher_data
     print 'Age: '
     age = gets.chomp.to_i
 
@@ -119,20 +109,10 @@ class App
     print 'Specialization: '
     specialization = gets.chomp
 
-    teacher = Teacher.new(age, specialization, name)
-    @people << teacher
-
-    puts 'Teacher created successfully'
-    options
+    create_a_teacher(age, specialization, name)
   end
 
-  def create_a_book
-    print 'Title: '
-    title = gets.chomp
-
-    print 'Author: '
-    author = gets.chomp
-
+  def create_a_book(title, author)
     book = Book.new(title, author)
     @books << book
 
@@ -140,7 +120,17 @@ class App
     options
   end
 
-  def create_a_rental
+  def book_data
+    print 'Title: '
+    title = gets.chomp
+
+    print 'Author: '
+    author = gets.chomp
+
+    create_a_book(title, author)
+  end
+
+  def create_a_rental(date)
     puts 'Select a book from the following list by number'
     @books.each_with_index { |book, index| puts "#{index} Title: #{book.title}, Author: #{book.author}" }
 
@@ -153,14 +143,18 @@ class App
 
     person_id = gets.chomp.to_i
 
-    print 'Date: '
-    date = gets.chomp
-
     rental = Rental.new(date, @books[book_id], @people[person_id])
     @rentals << rental
 
     puts 'Rental created successfully'
     options
+  end
+
+  def rental_data
+    print 'Date: '
+    date = gets.chomp
+
+    create_a_rental date
   end
 
   def list_rentals_by_person_id
